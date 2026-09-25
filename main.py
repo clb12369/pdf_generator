@@ -16,7 +16,10 @@ for index, row in df.iterrows():
         pdf.set_font(family="Times", style="B", size=24)
         pdf.set_text_color(100, 100, 100)
         pdf.cell(w=0, h=12, text=row['Topic'], align="L", new_x="LMARGIN", new_y="NEXT", border=0)
-        pdf.line(x1=10, y1=21, x2=200, y2=21)
+
+        # Add lines (8mm spacing)
+        for y in range(21, 290, 8):
+            pdf.line(x1=10, y1=y, x2=200, y2=y)
 
         # Add footer
         #pdf.ln(265)
